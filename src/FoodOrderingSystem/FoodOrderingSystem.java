@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 public class FoodOrderingSystem {
 
     public static void main(String[] args) {
-        // Create the frame
+        
         JFrame frame = new JFrame("Food Ordering System");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(350, 400);
         frame.setLayout(null);
 
-        // Create checkboxes for food items
+        
         JCheckBox cPizza = new JCheckBox("Pizza - Php 100");
         cPizza.setBounds(50, 20, 200, 30);
         frame.add(cPizza);
@@ -38,7 +38,7 @@ public class FoodOrderingSystem {
         cSundae.setBounds(50, 170, 200, 30);
         frame.add(cSundae);
 
-        // Create radio buttons for discount options
+        
         JRadioButton rbNone = new JRadioButton("No Discount");
         rbNone.setBounds(50, 210, 200, 30);
         frame.add(rbNone);
@@ -55,25 +55,25 @@ public class FoodOrderingSystem {
         rb15.setBounds(50, 300, 200, 30);
         frame.add(rb15);
 
-        // Group the discount radio buttons
+        
         ButtonGroup group = new ButtonGroup();
         group.add(rbNone);
         group.add(rb5);
         group.add(rb10);
         group.add(rb15);
 
-        // Create the order button
+        
         JButton btnOrder = new JButton("Order");
         btnOrder.setBounds(50, 330, 200, 30);
         frame.add(btnOrder);
 
-        // Action listener for the order button
+        
         btnOrder.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double totalPrice = 0;
 
-                // Calculate the total price based on selected food items
+                
                 if (cPizza.isSelected()) totalPrice += 100;
                 if (cBurger.isSelected()) totalPrice += 80;
                 if (cFries.isSelected()) totalPrice += 65;
@@ -81,21 +81,21 @@ public class FoodOrderingSystem {
                 if (cTea.isSelected()) totalPrice += 50;
                 if (cSundae.isSelected()) totalPrice += 40;
 
-                // Determine the discount
+                
                 double discount = 0;
                 if (rb5.isSelected()) discount = 0.05;
                 else if (rb10.isSelected()) discount = 0.10;
                 else if (rb15.isSelected()) discount = 0.15;
 
-                // Apply the discount
+                
                 totalPrice = totalPrice - (totalPrice * discount);
 
-                // Display the total price
+                
                 JOptionPane.showMessageDialog(frame, "The total price is Php " + String.format("%.2f", totalPrice));
             }
         });
 
-        // Set frame visibility
+        
         frame.setVisible(true);
     }
 }
